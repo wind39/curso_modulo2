@@ -1,0 +1,5 @@
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Calculadora/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Calculadora/bin/Debug/Calculadora.dll.mdb
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Calculadora/bin/Debug/Calculadora.dll
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Calculadora/obj/Debug/Calculadora.dll
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Calculadora/obj/Debug/Calculadora.dll.mdb

@@ -1,0 +1,7 @@
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/bin/Debug/Lista2Exercicio10.exe.mdb
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/bin/Debug/Lista2Exercicio10.exe
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/obj/x86/Debug/Lista2Exercicio10.exe
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/obj/x86/Debug/Lista2Exercicio10.exe.mdb
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/bin/Debug/EntradaDeDados.dll
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/Lista2Exercicio10/bin/Debug/EntradaDeDados.dll.mdb

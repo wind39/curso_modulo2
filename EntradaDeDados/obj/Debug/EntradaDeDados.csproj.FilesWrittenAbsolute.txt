@@ -1,0 +1,5 @@
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/EntradaDeDados/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/EntradaDeDados/bin/Debug/EntradaDeDados.dll.mdb
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/EntradaDeDados/bin/Debug/EntradaDeDados.dll
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/EntradaDeDados/obj/Debug/EntradaDeDados.dll
+/home/william/Documents/Projects/wind39.github.io/curso/Modulo2/EntradaDeDados/obj/Debug/EntradaDeDados.dll.mdb
