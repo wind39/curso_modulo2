@@ -11,13 +11,12 @@ namespace CadastroEscola
         {
             this.vetor = new System.Collections.Generic.List<Aluno>();
             this.variaveis = new EntradaDeDados.Variaveis();
+            this.Load();
         }
 
         public void Menu()
         {
             int opcao;
-
-            this.Load();
 
             do
             {
@@ -66,27 +65,51 @@ namespace CadastroEscola
         public void Create()
         {
             Aluno aluno;
+            ListaDePeriodos listadeperiodos;
+            Periodo periodo;
 
             aluno = new Aluno();
+            listadeperiodos = new ListaDePeriodos();
+            periodo = new Periodo();
 
             Console.WriteLine();
-
-            aluno.NomeCompleto = this.variaveis.LeString("Nome Completo: ");
-
-            //TODO: tratar sexos inválidos (só pode ser M ou F)
-            aluno.Sexo = this.variaveis.LeChar("Sexo: ");
 
             aluno.DocumentoIdentificacao = this.variaveis.LeString("Documento de Identificação: ");
-            aluno.DataNascimento = this.variaveis.LeDateTime("Data de Nascimento: ");
+            if (this.Search(aluno.DocumentoIdentificacao) == -1)
+            {
+                aluno.NomeCompleto = this.variaveis.LeString("Nome Completo: ");
 
-            //TODO: solicitar periodo de admissao
+                do
+                {
+                    aluno.Sexo = char.ToUpper(this.variaveis.LeChar("Sexo: "));
 
-            aluno.NumeroMatricula = this.vetor.Count + 1;
+                    if (aluno.Sexo != 'M' && aluno.Sexo != 'F')
+                        Console.WriteLine("ERRO! Sexo só pode ser M ou F.");
+                }
+                while (aluno.Sexo != 'M' && aluno.Sexo != 'F');
 
-            this.vetor.Add(aluno);
+                aluno.DataNascimento = this.variaveis.LeDateTime("Data de Nascimento: ");
 
-            Console.WriteLine();
-            Console.WriteLine("Aluno {0} cadastrado com sucesso!", aluno.NomeCompleto);
+                do
+                {
+                    periodo.Ano = this.variaveis.LeInt("Ano de Admissão: ");
+                    periodo.Semestre = this.variaveis.LeInt("Semestre de Admissão: ");
+
+                    if (listadeperiodos.Search(periodo.Ano, periodo.Semestre) == -1)
+                        Console.WriteLine("ERRO! Período {0}/{1} não existe.");
+                }
+                while (listadeperiodos.Search(periodo.Ano, periodo.Semestre) == -1);
+                aluno.PeriodoAdmissao = periodo;
+
+                aluno.NumeroMatricula = this.vetor.Count + 1;
+
+                this.vetor.Add(aluno);
+
+                Console.WriteLine();
+                Console.WriteLine("Aluno {0} cadastrado com sucesso!", aluno.NomeCompleto);
+            }
+            else
+                Console.WriteLine("ERRO! Já existe um aluno com documento de identificação {0}.", aluno.DocumentoIdentificacao);
         }
 
         public void Retrieve()
@@ -97,8 +120,7 @@ namespace CadastroEscola
             Console.WriteLine("Núm. Matrícula | Nome Completo | Sexo | Documento | Data Nascimento");
 
             foreach (Aluno x in this.vetor)
-                //TODO: mostrar periodo de admissao do aluno
-                Console.WriteLine("{0} | {1} | {2} | {3} | {4}", x.NumeroMatricula, x.NomeCompleto, x.Sexo, x.DocumentoIdentificacao, x.DataNascimento);
+                Console.WriteLine("{0} | {1} | {2} | {3} | {4} | {5}/{6}", x.NumeroMatricula, x.NomeCompleto, x.Sexo, x.DocumentoIdentificacao, x.DataNascimento, x.PeriodoAdmissao.Ano, x.PeriodoAdmissao.Semestre);
             Console.WriteLine();
         }
 
@@ -106,6 +128,8 @@ namespace CadastroEscola
         {
             int matricula;
             int indice;
+            ListaDePeriodos listadeperiodos;
+            Periodo periodo;
 
             this.Retrieve();
 
@@ -114,26 +138,52 @@ namespace CadastroEscola
                 Console.Write("Digite o número de matrícula do aluno a ser atualizado: ");
                 matricula = int.Parse(Console.ReadLine());
 
-                //TODO: verificar se aluno existe com código de busca
-                if (matricula < 1 || matricula > this.vetor.Count)
+                indice = this.Search(matricula);
+                if (indice == -1)
                     Console.WriteLine("ERRO! Aluno não existente.");
             }
-            while (matricula < 1 || matricula > this.vetor.Count);
+            while (indice == -1);
 
-            //TODO: código de busca retornaria o índice do aluno
-            indice = matricula - 1;
+            listadeperiodos = new ListaDePeriodos();
+            periodo = new Periodo();
 
             Console.WriteLine();
 
+            do
+            {
+                vetor[indice].DocumentoIdentificacao = this.variaveis.LeString("Documento de Identificação: ");
+
+                if (this.Search(vetor[indice].DocumentoIdentificacao) != -1 && this.Search(vetor[indice].DocumentoIdentificacao) != indice)
+                    Console.WriteLine("ERRO! Outro aluno já existe com esse documento de identificação.");
+            }
+            while (this.Search(vetor[indice].DocumentoIdentificacao) != -1 && this.Search(vetor[indice].DocumentoIdentificacao) != indice);
+
             vetor[indice].NomeCompleto = this.variaveis.LeString("Nome Completo: ");
 
-            //TODO: tratar sexos inválidos (só pode ser M ou F)
-            vetor[indice].Sexo = this.variaveis.LeChar("Sexo: ");
+            do
+            {
+                vetor[indice].Sexo = char.ToUpper(this.variaveis.LeChar("Sexo: "));
 
-            vetor[indice].DocumentoIdentificacao = this.variaveis.LeString("Documento de Identificação: ");
+                if (vetor[indice].Sexo != 'M' && vetor[indice].Sexo != 'F')
+                    Console.WriteLine("ERRO! Sexo só pode ser M ou F.");
+            }
+            while (vetor[indice].Sexo != 'M' && vetor[indice].Sexo != 'F');
+
             vetor[indice].DataNascimento = this.variaveis.LeDateTime("Data de Nascimento: ");
 
-            //TODO: concluir metodo update
+            do
+            {
+                periodo.Ano = this.variaveis.LeInt("Ano de Admissão: ");
+                periodo.Semestre = this.variaveis.LeInt("Semestre de Admissão: ");
+
+                if (listadeperiodos.Search(periodo.Ano, periodo.Semestre) == -1)
+                    Console.WriteLine("ERRO! Período {0}/{1} não existe.");
+            }
+            while (listadeperiodos.Search(periodo.Ano, periodo.Semestre) == -1);
+            vetor[indice].PeriodoAdmissao = periodo;
+
+            Console.WriteLine();
+            Console.WriteLine("Aluno {0} atualizado com sucesso!", vetor[indice].NomeCompleto);
         }
 
         public void Delete()
@@ -146,6 +196,44 @@ namespace CadastroEscola
 
         public void Save()
         {
+        }
+
+        public int Search(string pDocumentoIdentificacao)
+        {
+            bool achou = false;
+            int k = 0;
+
+            while (k < this.vetor.Count && !achou)
+            {
+                if (this.vetor[k].DocumentoIdentificacao == pDocumentoIdentificacao)
+                    achou = true;
+                else
+                    k++;
+            }
+
+            if (achou)
+                return k;
+            else
+                return -1;
+        }
+
+        public int Search(int pNumeroMatricula)
+        {
+            bool achou = false;
+            int k = 0;
+
+            while (k < this.vetor.Count && !achou)
+            {
+                if (this.vetor[k].NumeroMatricula == pNumeroMatricula)
+                    achou = true;
+                else
+                    k++;
+            }
+
+            if (achou)
+                return k;
+            else
+                return -1;
         }
     }
 }

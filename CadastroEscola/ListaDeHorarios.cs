@@ -5,17 +5,18 @@ namespace CadastroEscola
     public class ListaDeHorarios
     {
         public System.Collections.Generic.List<Horario> vetor;
+        private EntradaDeDados.Variaveis variaveis;
 
         public ListaDeHorarios()
         {
             this.vetor = new System.Collections.Generic.List<Horario>();
+            this.variaveis = new EntradaDeDados.Variaveis();
+            this.Load();
         }
 
         public void Menu()
         {
             int opcao;
-
-            this.Load();
 
             do
             {

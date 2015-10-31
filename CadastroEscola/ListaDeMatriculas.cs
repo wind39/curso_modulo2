@@ -5,10 +5,12 @@ namespace CadastroEscola
     public class ListaDeMatriculas
     {
         public System.Collections.Generic.List<Matricula> vetor;
+        private EntradaDeDados.Variaveis variaveis;
 
         public ListaDeMatriculas()
         {
             this.vetor = new System.Collections.Generic.List<Matricula>();
+            this.variaveis = new EntradaDeDados.Variaveis();
         }
 
         public void Menu()

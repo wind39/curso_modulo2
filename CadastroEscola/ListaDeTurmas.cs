@@ -5,17 +5,18 @@ namespace CadastroEscola
     public class ListaDeTurmas
     {
         public System.Collections.Generic.List<Turma> vetor;
+        private EntradaDeDados.Variaveis variaveis;
 
         public ListaDeTurmas()
         {
             this.vetor = new System.Collections.Generic.List<Turma>();
+            this.variaveis = new EntradaDeDados.Variaveis();
+            this.Load();
         }
 
         public void Menu()
         {
             int opcao;
-
-            this.Load();
 
             do
             {

@@ -5,17 +5,18 @@ namespace CadastroEscola
     public class ListaDeProfessores
     {
         public System.Collections.Generic.List<Professor> vetor;
+        private EntradaDeDados.Variaveis variaveis;
 
         public ListaDeProfessores()
         {
             this.vetor = new System.Collections.Generic.List<Professor>();
+            this.variaveis = new EntradaDeDados.Variaveis();
+            this.Load();
         }
 
         public void Menu()
         {
             int opcao;
-
-            this.Load();
 
             do
             {

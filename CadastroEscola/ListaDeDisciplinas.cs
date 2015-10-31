@@ -5,17 +5,18 @@ namespace CadastroEscola
     public class ListaDeDisciplinas
     {
         public System.Collections.Generic.List<Disciplina> vetor;
+        private EntradaDeDados.Variaveis variaveis;
 
         public ListaDeDisciplinas()
         {
             this.vetor = new System.Collections.Generic.List<Disciplina>();
+            this.variaveis = new EntradaDeDados.Variaveis();
+            this.Load();
         }
 
         public void Menu()
         {
             int opcao;
-
-            this.Load();
 
             do
             {
