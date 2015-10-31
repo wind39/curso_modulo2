@@ -2,11 +2,27 @@
 
 namespace CadastroEscola
 {
+    /// <summary>
+    /// Classe ListaDeAlunos.
+    /// </summary>
+    /// <remarks>
+    /// Contém métodos para criar, listar, inserir, remover, carregar de arquivo e salvar em arquivo.
+    /// </remarks>
     public class ListaDeAlunos
     {
+        /// <summary>
+        /// Vetor dinâmico de alunos.
+        /// </summary>
         public System.Collections.Generic.List<Aluno> vetor;
+
+        /// <summary>
+        /// Objeto auxiliar para leitura de dados pelo Console.
+        /// </summary>
         private EntradaDeDados.Variaveis variaveis;
 
+        /// <summary>
+        /// Inicializa uma nova instância da classe <see cref="ListaDeAlunos"/>.
+        /// </summary>
         public ListaDeAlunos()
         {
             this.vetor = new System.Collections.Generic.List<Aluno>();
@@ -14,6 +30,9 @@ namespace CadastroEscola
             this.Load();
         }
 
+        /// <summary>
+        /// Método que fornece um menu interativo ao usuário.
+        /// </summary>
         public void Menu()
         {
             int opcao;
@@ -62,6 +81,9 @@ namespace CadastroEscola
             while (opcao != 0);
         }
 
+        /// <summary>
+        /// Cria um novo aluno, solicitando ao usuário para digitar as informações.
+        /// </summary>
         public void Create()
         {
             Aluno aluno;
@@ -78,7 +100,8 @@ namespace CadastroEscola
             if (this.Search(aluno.DocumentoIdentificacao) == -1)
             {
                 aluno.NomeCompleto = this.variaveis.LeString("Nome Completo: ");
-
+                
+                // garantindo que o usuário digite M ou F para o sexo do Aluno
                 do
                 {
                     aluno.Sexo = char.ToUpper(this.variaveis.LeChar("Sexo: "));
@@ -112,6 +135,9 @@ namespace CadastroEscola
                 Console.WriteLine("ERRO! Já existe um aluno com documento de identificação {0}.", aluno.DocumentoIdentificacao);
         }
 
+        /// <summary>
+        /// Lista todos os alunos cadastrados.
+        /// </summary>
         public void Retrieve()
         {
             Console.WriteLine();
@@ -124,6 +150,9 @@ namespace CadastroEscola
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Atualiza as informações de um aluno existente.
+        /// </summary>
         public void Update()
         {
             int matricula;
@@ -186,18 +215,32 @@ namespace CadastroEscola
             Console.WriteLine("Aluno {0} atualizado com sucesso!", vetor[indice].NomeCompleto);
         }
 
+        /// <summary>
+        /// Exclui um aluno.
+        /// </summary>
         public void Delete()
         {
         }
 
+        /// <summary>
+        /// Carrega do arquivo todos os alunos cadastrados para dentro do vetor.
+        /// </summary>
         public void Load()
         {
         }
 
+        /// <summary>
+        /// Salva em arquivo todos os alunos que estão no vetor.
+        /// </summary>
         public void Save()
         {
         }
 
+        /// <summary>
+        /// Método de busca por Documento de Identificação.
+        /// </summary>
+        /// <param name="pDocumentoIdentificacao">Documento de Identificação do aluno.</param>
+        /// <returns>Índice do aluno que possui o Documento de Identificação; -1 caso nenhum aluno possua o Documento de Identificação.</returns>
         public int Search(string pDocumentoIdentificacao)
         {
             bool achou = false;
@@ -217,6 +260,11 @@ namespace CadastroEscola
                 return -1;
         }
 
+        /// <summary>
+        /// Método de busca por Número de Matrícula.
+        /// </summary>
+        /// <param name="pDocumentoIdentificacao">Número de Matrícula do aluno.</param>
+        /// <returns>Índice do aluno que possui o Número de Matrícula; -1 caso nenhum aluno possua o Número de Matrícula.</returns>
         public int Search(int pNumeroMatricula)
         {
             bool achou = false;

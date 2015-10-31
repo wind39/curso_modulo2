@@ -1,0 +1,2 @@
+C:\Users\william\Documents\GitHub\curso_modulo2\CadastroEscola\bin\Debug\CadastroEscola.exe.config
+C:\Users\william\Documents\GitHub\curso_modulo2\CadastroEscola\obj\x86\Debug\CadastroEscola.exe
