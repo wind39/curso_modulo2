@@ -5,3 +5,5 @@
 /home/william/Documents/Projects/curso_modulo2/CadastroEscola/bin/Debug/CadastroEscola.exe
 /home/william/Documents/Projects/curso_modulo2/CadastroEscola/obj/x86/Debug/CadastroEscola.exe
 /home/william/Documents/Projects/curso_modulo2/CadastroEscola/obj/x86/Debug/CadastroEscola.exe.mdb
+/home/william/Documents/Projects/curso_modulo2/CadastroEscola/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/william/Documents/Projects/curso_modulo2/CadastroEscola/bin/Debug/CadastroEscola.exe.config

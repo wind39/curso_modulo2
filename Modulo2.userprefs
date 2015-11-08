@@ -1,23 +1,10 @@
-﻿<Properties StartupItem="CadastroEscola/CadastroEscola.csproj">
+﻿<Properties StartupItem="Modulo2/Modulo2.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CadastroEscola/ListaDeAlunos.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Modulo2/Janela.cs">
     <Files>
-      <File FileName="CadastroEscola/Program.cs" Line="37" Column="40" />
-      <File FileName="CadastroEscola/ListaDeAlunos.cs" Line="16" Column="27" />
-      <File FileName="CadastroEscola/Aluno.cs" Line="5" Column="32" />
-      <File FileName="CadastroEscola/Pessoa.cs" Line="13" Column="10" />
+      <File FileName="Modulo2/Program.cs" Line="12" Column="64" />
+      <File FileName="Modulo2/Janela.cs" Line="27" Column="34" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Modulo2" expanded="True">
-            <Node name="CadastroEscola" expanded="True">
-              <Node name="ListaDeAlunos.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
